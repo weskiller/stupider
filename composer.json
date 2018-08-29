@@ -1,0 +1,26 @@
+{
+    "name": "weskiller/stupider",
+    "description": "a stupider swoole http server package;",
+    "keywords": [
+        "swoole",
+        "stupid"
+    ],
+    "type": "library",
+    "prefer-stable": true,
+    "minimum-stability": "dev",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "weskiller",
+            "email": "weskiller@vip.qq.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Weskiller\\Stupider\\": "src/"
+        }
+    }
+}
