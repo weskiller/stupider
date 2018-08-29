@@ -85,7 +85,7 @@
         public function load(string $conf) :bool {
             if (is_file($absolute = $this->getAbsolute($conf))) {
                 $result = require $absolute;
-                if (is_array($result)) {
+                if (!empty($result) and is_array($result)) {
                     $this->set($conf, $result);
                     return true;
                 }
