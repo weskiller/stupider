@@ -91,9 +91,7 @@
             if ($listen = $this->getConf('listen') and $port = $this->getConf('port')) {
                 return new \Swoole\Http\Server($listen, $port);
             }
-            else {
-                throw new SeverException('invalid server config listen or port');
-            }
+            throw new SeverException('invalid server config listen or port');
         }
 
         /**

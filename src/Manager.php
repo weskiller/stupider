@@ -209,7 +209,7 @@ EOF
          *
          */
         protected function sysInfoInitialize() {
-            $this->setRecord('sys.script',explode('.',basename($_SERVER['argv'][0])));
+            $this->setRecord('sys.script',explode('.',basename($_SERVER['argv'][0]))[0]);
             $this->setRecord('sys.version',static::version);
         }
 

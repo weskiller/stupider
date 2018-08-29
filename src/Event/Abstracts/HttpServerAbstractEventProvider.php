@@ -215,11 +215,12 @@
          * @param int $workerId
          */
         public function onWorkerStart(\Swoole\Server $server, int $workerId): void {
+            $script = Manager::getInstance()->getSysInfo('script');
             if($server->taskworker) {
-                swoole_set_process_name(Manager::getInstance()->getSysInfo('script') . " TaskWorker-$workerId");
+                swoole_set_process_name("$script TaskWorker-$workerId");
             }
             else {
-                swoole_set_process_name(Manager::getInstance()->getSysInfo('script') . " Worker-$workerId");
+                swoole_set_process_name("$script Worker-$workerId");
             }
         }
 
