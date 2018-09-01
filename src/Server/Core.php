@@ -8,6 +8,7 @@
 
     namespace Weskiller\Stupider\Server;
     use Weskiller\Stupider\Config;
+    use Weskiller\Stupider\Exceptions\Concrete\RunTimeException;
     use Weskiller\Stupider\Manager;
     use Weskiller\Stupider\Support\Traits\Original;
     use Weskiller\Stupider\Event\Core as EventManager;
@@ -115,11 +116,14 @@
         }
 
         /**
-         * @return array|mixed
+         * @throws SeverException
          */
         public function loadConfig() {
-            $this->setConf(Config::getInstance()->get("server"));
-            return $this;
+            if($conf = Config::getInstance()->get("server")) {
+                $this->setConf($conf);
+                return ;
+            }
+            throw new SeverException('not found server configuration');
         }
 
         /**
